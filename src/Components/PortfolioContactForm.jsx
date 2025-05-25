@@ -31,7 +31,7 @@ export default function ContactSection() {
             >
               <p>🏆 Runner-up - Coding Contest at Astra Tech Fest 2025</p>
               <p>🏆 Second Runner-up - Hackathon at Astra Tech Fest 2025</p>
-              <p>🏆 Internal Hackathon for Smart India Hackathon 2024</p>
+              <p>🏆 Second Runner-up - Internal Hackathon for Smart India Hackathon 2024</p>
             </motion.div>
           </div>
         </div>
