@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+  scroll-behavior: smooth;
+
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  font-family: 'Poppins', sans-serif;
+  cursor: url('/assets/cursorDeSite/cursorDeAstronaute.png'), auto;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.cursor-astronaut {
+  cursor: url('/assets/cursorDeSite/cursorDeAstronaute.png') 16 16, auto;
+}
+
+body,
+button,
+a,
+input,
+textarea,
+select {
+  cursor: none !important;
+}
+
+input,
+textarea,
+select {
+  cursor: text !important;
+}
+
+.portfolio-form-container {
+  cursor: none !important;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(rgba(13, 13, 43, 0.6), rgba(0, 0, 0, 0.9));
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-2px);
+  }
+
+  50% {
+    transform: translateY(2px);
+  }
+
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes floatCenterMeteor {
+  0% {
+    transform: translateY(-2px);
+  }
+
+  50% {
+    transform: translateY(2px);
+  }
+
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+.center-meteor {
+  transform: translate(-50%, -50%);
+  animation: floatCenterMeteor 3s ease-in-out infinite;
+}
+
+
+.hologram {
+  position: absolute;
+  top: 26%;
+  left: 35%;
+  transform: translate(100%, -50%);
+  width: 400px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(0, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  color: #aafaff;
+  font-size: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  animation: float 3s ease-in-out infinite;
+  z-index: 20;
+}
+@media screen and (max-width: 768px) {
+  .hologram {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    font-size: 1.3rem;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+}
+
+.hologram h2 {
+  font-size: 1.25rem;
+  color: #b4ffff;
+  margin-bottom: 8px;
+}
+
+.glowPlanet {
+  filter: drop-shadow(0 0 8px #7f5eff) drop-shadow(0 0 20px #7f5eff);
+  transition: transform 0.3s ease;
+}
+
+.glowPlanet:hover {
+  transform: scale(1.05);
+}
+
+.text-shadow {
+  text-shadow: 0 0 6px #7f5eff, 0 0 12px #7f5eff;
+}
+
+@keyframes rotatePlanet {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-slow {
+  animation: rotatePlanet 20s linear infinite;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.1);
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+.glowastronaut{
+  filter: drop-shadow(0 0 10px #e7ecef) drop-shadow(0 0 25px #f6fcfd);
+  animation: float 3s ease-in-out infinite;
+
+}
+
+.glowing-rocket {
+  filter: drop-shadow(0 0 8px #a9bdc8) drop-shadow(0 0 20px #d6e3e4);
+}
+
+.glowing-satellite {
+
+  filter: drop-shadow(0 0 8px #7f5eff) drop-shadow(0 0 20px #7f5eff);
+}
+
+.glowNebula {
+  filter: drop-shadow(0 0 15px #9b5de5) drop-shadow(0 0 25px #f15bb5);
+  animation: nebulaPulse 3s ease-in-out infinite;
+}
+
+@keyframes nebulaPulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 15px #c8bed4) drop-shadow(0 0 25px #f9d4ea);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 25px #f15bb5) drop-shadow(0 0 35px #9b5de5);
+  }
+}
+
+.hologramform {
+  width: 400px;
+  top: 115px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  color: #aafaff;
+  font-size: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  animation: float 3s ease-in-out infinite;
+  z-index: 20;
+}
+@media screen and (max-width: 768px) {
+  .hologramform {
+    width: 90%;
+    top: 20%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+  }
+}
+.glowstation {
+  filter: drop-shadow(0 0 18px #08edf5) drop-shadow(0 0 50px #37caff) blur(2px);
+  animation: float 3s ease-in-out infinite;
+}
