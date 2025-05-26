@@ -7,24 +7,65 @@ const projects = [
   {
     title: "RealorNot",
     description:
-      "A fake news detection system using NLP and machine learning to classify news articles as real or fake. (click or hover to see  image preview)",
+      "A fake news detection system using NLP and machine learning to classify news articles as real or fake. (click or hover to see image preview)",
     satellite: "/assets/satellites/sat1.png",
     preview: "/assets/previews/realornot.png",
     github: "https://github.com/mehul-kumar-swarnber/RealorNot.git",
     tech: ["JavaScript", "Python", "Machine Learning"],
+    contributors: [
+      {
+        name: "Avinash Jaiswal",
+        linkedin: "https://www.linkedin.com/in/avinash-jaiswal-8859b7282 ",
+      },
+      {
+        name: "Nishtha Dewangan",
+        linkedin: "https://www.linkedin.com/in/nishtha-dewangan-09aaa6337 ",
+      },
+      {
+        name: "Prasidhee Mishra",
+        linkedin: "https://www.linkedin.com/in/prasidhee-mishra-b144ab332 ",
+      },
+      {
+        name: "Stuti Shivhare",
+        linkedin: "https://www.linkedin.com/in/stuti-shivhare-919ba2213 ",
+      },
+    ],
   },
   {
     title: "Rights4U",
     description:
-      "A quiz game for children to learn basic rights, built using HTML, CSS, JavaScript, and Tailwind CSS. (click or hover to see  image preview)",
+      "A quiz game for children to learn basic rights, built using HTML, CSS, JavaScript, and Tailwind CSS. (click or hover to see image preview)",
     satellite: "/assets/satellites/sat2.png",
     preview: "/assets/previews/rights4u.png",
     github: "https://github.com/mehul-kumar-swarnber/Rights4U.git",
     tech: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    contributors: [
+      {
+        name: "Avinash Jaiswal",
+        linkedin: "https://www.linkedin.com/in/avinash-jaiswal-8859b7282 ",
+      },
+      {
+        name: "Nishtha Dewangan",
+        linkedin: "https://www.linkedin.com/in/nishtha-dewangan-09aaa6337 ",
+      },
+      {
+        name: "Prasidhee Mishra",
+        linkedin: "https://www.linkedin.com/in/prasidhee-mishra-b144ab332 ",
+      },
+      {
+        name: "Stuti Shivhare",
+        linkedin: "https://www.linkedin.com/in/stuti-shivhare-919ba2213 ",
+      },
+      {
+        name: "Vinay Kumar Sahu",
+        linkedin: "https://www.linkedin.com/in/vinay-kumar-sahu-106313324 ",
+      },
+    ],
   },
   {
     title: "DoIt",
-    description: "A simple to-do WebApp using React.js, Tailwind CSS, and Local Storage. (click or hover to see  image preview)",
+    description:
+      "A simple to-do WebApp using React.js, Tailwind CSS, and Local Storage. (click or hover to see image preview)",
     satellite: "/assets/satellites/sat3.png",
     preview: "/assets/previews/todolist.png",
     github: "https://github.com/mehul-kumar-swarnber/DoIt.git",
@@ -33,7 +74,7 @@ const projects = [
   {
     title: "Spotify Clone",
     description:
-      "A Spotify-inspired web app that allows users to browse playlists, play songs, and control playback. (click or hover to see  image preview)",
+      "A Spotify-inspired web app that allows users to browse playlists, play songs, and control playback. (click or hover to see image preview)",
     satellite: "/assets/satellites/sat4.png",
     preview: "/assets/previews/spotifyclone.png",
     github: "https://github.com/mehul-kumar-swarnber/Spotify-Clone.git",
@@ -42,7 +83,7 @@ const projects = [
   {
     title: "MongoMocker",
     description:
-      "Generates and inserts random user data into MongoDB with a click, using Express.js and Fetch API. (click or hover to see  image preview)",
+      "Generates and inserts random user data into MongoDB with a click, using Express.js and Fetch API. (click or hover to see image preview)",
     satellite: "/assets/satellites/sat5.png",
     preview: "/assets/previews/mongomocker.png",
     github: "https://github.com/mehul-kumar-swarnber/MongoMocker.git",
@@ -67,7 +108,10 @@ export default function Projects() {
     >
       <div className="absolute inset-0 z-0 bg-cover bg-center opacity-20" />
 
-      <div className="relative z-10 h-full flex items-center justify-center">
+      {/* <div className="relative z-10 h-full flex items-center justify-center"> */}
+
+      <div className="relative z-10 h-screen flex flex-col justify-end items-center">
+
         <AnimatePresence mode="wait">
           <motion.div
             key={project.title}
@@ -80,7 +124,7 @@ export default function Projects() {
             <img
               src={project.satellite}
               alt="Satellite icon"
-              className="w-20 h-20  md:w-[300px] md:h-[300px] animate-spin-slow glowing-satellite"
+              className="w-20 h-20 md:w-[300px] md:h-[300px]  animate-spin-slow glowing-satellite"
             />
 
             <div
@@ -95,7 +139,8 @@ export default function Projects() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -30 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute bottom-66 md:bottom-55 mb-0 left-1/2 transform -translate-x-1/2 w-[300px] md:w-[500px] rounded-lg shadow-lg z-20 pointer-events-none"
+                    className="absolute left-1/2 transform -translate-x-1/2 w-[280px] md:w-[500px] rounded-lg shadow-lg z-10 pointer-events-none
+             bottom-full mb-4  md:top-auto md:bottom-75"
                   >
                     <img
                       src={project.preview}
@@ -107,8 +152,10 @@ export default function Projects() {
               </AnimatePresence>
 
               <div className="w-[23rem] md:w-[600px] bg-blue-300/10 backdrop-blur-lg border border-blue-400/20 p-6 rounded-xl shadow-lg hover:shadow-xl hover:bg-blue-300/5 transition-all overflow-hidden">
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="text-sm mt-2 text-blue-100">{project.description}</p>
+                <h3 className="text-base md:text-xl font-semibold">{project.title}</h3>
+                <p className="text-xs md:text-sm mt-2 text-blue-100">
+                  {project.description}
+                </p>
 
                 <div className="mt-3 text-xs text-blue-200 flex flex-wrap gap-2">
                   {project.tech.map((tech, index) => (
@@ -120,6 +167,27 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {project.contributors && (
+                  <div className="mt-4">
+                    <h4 className="text-sm font-semibold text-blue-100 mb-1">Other Contributors:</h4>
+                    <ul className="space-y-1 text-xs text-blue-200">
+                      {project.contributors.map((contributor, index) => (
+                        <li key={index}>
+                          <a
+                            href={contributor.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline text-blue-300"
+                          >
+                            {contributor.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
 
                 <a
                   href={project.github}
@@ -161,4 +229,3 @@ export default function Projects() {
     </section>
   );
 }
-

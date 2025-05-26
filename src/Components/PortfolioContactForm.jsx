@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Form from "./Form";
 
-export default function ContactSection() {
+export default function PortfolioContactForm() {
   const [showAttributions, setShowAttributions] = useState(false);
 
   return (
