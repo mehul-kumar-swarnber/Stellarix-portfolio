@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 
 const CursorScrollWatcher = () => {
-  const scrollDirection = useRef(null); 
+  const scrollDirection = useRef(null);
   const animationFrame = useRef(null);
   const speedRef = useRef(0);
   const acceleration = 0.05;
-  const maxSpeed = 3;
+  const maxSpeed = 4.5;
 
   useEffect(() => {
     const scrollStep = () => {
@@ -26,16 +26,16 @@ const CursorScrollWatcher = () => {
       const isInteractive = ['input', 'textarea', 'select', 'button', 'a'].includes(tag);
 
       if (!isInteractive && (e.button === 0 || e.button === 2)) {
-        
+
         scrollDirection.current = e.button === 0 ? 'down' : 'up';
 
-        e.preventDefault(); 
+        e.preventDefault();
         document.body.classList.add('cursor-astronaut');
         document.body.style.userSelect = 'none';
         scrollStep();
       }
     };
-
+   
     const handleMouseUp = () => {
       scrollDirection.current = null;
       speedRef.current = 0;

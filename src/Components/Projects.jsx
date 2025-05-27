@@ -113,14 +113,20 @@ export default function Projects() {
       <div className="relative z-10 h-screen flex flex-col justify-end items-center">
 
         <AnimatePresence mode="wait">
+
           <motion.div
             key={project.title}
             className="relative flex flex-col md:flex-row items-center space-y-50 md:space-y-0 md:space-x-10"
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.6 }}
+            exit={{ opacity: 0, x: -40 }}
+            transition={{
+              delay: 0.1,
+              duration: 0.9,
+              ease: [0.25, 0.1, 0.25, 1], // cubic-bezier for smooth natural motion
+            }}
           >
+
             <img
               src={project.satellite}
               alt="Satellite icon"
@@ -138,7 +144,7 @@ export default function Projects() {
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -30 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.5 }}
                     className="absolute left-1/2 transform -translate-x-1/2 w-[280px] md:w-[500px] rounded-lg shadow-lg z-10 pointer-events-none
              bottom-full mb-4  md:top-auto md:bottom-75"
                   >
@@ -214,7 +220,7 @@ export default function Projects() {
         <motion.div
           className="relative w-full h-full"
           animate={{ y: [0, -20, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
         >
           <img
             src="/assets/rocketdeimage/rocket.png"

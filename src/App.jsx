@@ -17,12 +17,18 @@ function Loader() {
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white text-3xl"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+        animate={{
+          opacity: [0.3, 1, 0.3],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
         className="text-4xl"
       >
         🚀 Loading...
@@ -30,6 +36,7 @@ function Loader() {
     </motion.div>
   );
 }
+
 
 export default function App() {
   const videoRef = useRef(null);
@@ -68,6 +75,7 @@ export default function App() {
 
             <video
               ref={videoRef}
+              preload="auto"
               autoPlay
               muted
               loop

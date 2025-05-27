@@ -6,15 +6,21 @@ const RevealOverlay = () => {
 
   useEffect(() => {
     const el = overlayRef.current;
-    gsap.to(el, {
-      duration: 2,
-      scaleY: 0,
-      transformOrigin: "top center",
-      ease: "power4.inOut",
-      onComplete: () => {
-        el.style.display = "none"; 
-      },
-    });
+
+    gsap.fromTo(
+      el,
+      { scaleY: 1 },
+      {
+        scaleY: 0,
+        duration: 1.6,
+        delay: 0.5, 
+        ease: "power4.inOut",
+        transformOrigin: "top center",
+        onComplete: () => {
+          if (el) el.style.display = "none";
+        },
+      }
+    );
   }, []);
 
   return (
@@ -26,9 +32,11 @@ const RevealOverlay = () => {
         left: 0,
         width: "100vw",
         height: "100vh",
-        backgroundColor: "#0d0d0d", 
-        zIndex: 999999999999,
+        backgroundColor: "black", 
+        zIndex: 999999999,
         transform: "scaleY(1)",
+        willChange: "transform",
+        pointerEvents: "none",
       }}
     />
   );

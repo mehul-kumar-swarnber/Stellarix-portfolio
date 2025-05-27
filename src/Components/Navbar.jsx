@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import '../Styles/Navbar.css';
 
@@ -20,6 +20,21 @@ const Navbar = () => {
     }
   };
   const isMobile = window.innerWidth <= 768;
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const audio = audioRef.current;
+      if (document.hidden && audio && !audio.paused) {
+        audio.pause();
+        setIsPlaying(false);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
   return (
     <div>
       <nav
