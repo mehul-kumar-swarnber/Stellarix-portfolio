@@ -77,7 +77,7 @@ const Navbar = () => {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/mehul-kumar-swarnber-128669300"
+            href="https://www.linkedin.com/in/mehul-kumar-swarnber"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'white', fontSize: '1.5rem' }}
@@ -106,7 +106,7 @@ const Navbar = () => {
           <audio ref={audioRef} src="/assets/sounds/site-sound.mp3" preload="auto" />
           {/* Resume */}
           <a
-            href="/assets/Resume/Mehul_Swarnber_Resume.pdf"
+            href="/assets/Resume/Mehul_Swarnber_Resume_n.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{

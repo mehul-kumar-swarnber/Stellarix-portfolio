@@ -123,7 +123,7 @@ export default function Projects() {
             transition={{
               delay: 0.1,
               duration: 0.9,
-              ease: [0.25, 0.1, 0.25, 1], // cubic-bezier for smooth natural motion
+              ease: [0.25, 0.1, 0.25, 1], // Cubic-bezier for smooth natural motion
             }}
           >
 
