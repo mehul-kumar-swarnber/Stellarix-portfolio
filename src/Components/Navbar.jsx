@@ -106,7 +106,7 @@ const Navbar = () => {
           <audio ref={audioRef} src="/assets/sounds/site-sound.mp3" preload="auto" />
           {/* Resume */}
           <a
-            href="/assets/Resume/Mehul_Swarnber_Resume_n.pdf"
+            href="/assets/Resume/Mehul_Swarnber_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{
