@@ -4,8 +4,8 @@ const CursorScrollWatcher = () => {
   const scrollDirection = useRef(null);
   const animationFrame = useRef(null);
   const speedRef = useRef(0);
-  const acceleration = 0.05;
-  const maxSpeed = 4.5;
+  const acceleration = 1;
+  const maxSpeed = 7.5;
 
   useEffect(() => {
     const scrollStep = () => {

@@ -17,7 +17,7 @@ function Loader() {
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white text-3xl"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div
@@ -37,7 +37,6 @@ function Loader() {
   );
 }
 
-
 export default function App() {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(true);
@@ -46,6 +45,7 @@ export default function App() {
     const video = videoRef.current;
     if (video) {
       video.playbackRate = 2;
+
       const handleEnded = () => {
         video.currentTime = 0;
         video.play();
@@ -62,56 +62,56 @@ export default function App() {
 
   return (
     <>
+      <video
+        ref={videoRef}
+        preload="auto"
+        autoPlay
+        muted
+        loop
+        playsInline
+        id="bg-video"
+        className="fixed inset-0 w-full h-full object-cover -z-10"
+      >
+        <source
+          src="/assets/backgroundVideo/backgrounDeSpaceVideo2.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="bg-overlay fixed inset-0 -z-5"></div>
+
       <AnimatePresence mode="wait">
-        {loading ? (
-          <Loader key="loader" />
-        ) : (
-          <>
-            <DisableWheelScroll />
-            <CursorScrollWatcher />
-            <RevealOverlay />
-            <AstronautCursor />
-            <Navbar />
-
-            <video
-              ref={videoRef}
-              preload="auto"
-              autoPlay
-              muted
-              loop
-              playsInline
-              id="bg-video"
-              className="fixed inset-0 w-full h-full object-cover -z-10"
-            >
-              <source
-                src="/assets/backgroundVideo/backgrounDeSpaceVideo2.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-
-            <div className="bg-overlay fixed inset-0 -z-5"></div>
-
-            <main>
-              <section id="landing" className="min-h-screen">
-                <Landing />
-              </section>
-              <section id="about" className="min-h-screen">
-                <About />
-              </section>
-              <section id="skills" className="min-h-screen">
-                <Skills />
-              </section>
-              <section id="projects" className="min-h-screen">
-                <Projects />
-              </section>
-              <section id="contact" className="min-h-screen">
-                <PortfolioContactForm />
-              </section>
-            </main>
-          </>
-        )}
+        {loading && <Loader key="loader" />}
       </AnimatePresence>
+
+      {!loading && (
+        <>
+          <DisableWheelScroll />
+          <CursorScrollWatcher />
+          <RevealOverlay />
+          <AstronautCursor />
+          <Navbar />
+
+          <main>
+            <section id="landing" className="min-h-screen">
+              <Landing />
+            </section>
+            <section id="about" className="min-h-screen">
+              <About />
+            </section>
+            <section id="skills" className="min-h-screen">
+              <Skills />
+            </section>
+            <section id="projects" className="min-h-screen">
+              <Projects />
+            </section>
+            <section id="contact" className="min-h-screen">
+              <PortfolioContactForm />
+            </section>
+          </main>
+        </>
+      )}
     </>
   );
 }
