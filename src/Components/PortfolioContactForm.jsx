@@ -95,7 +95,7 @@ export default function PortfolioContactForm() {
       {/* <p className="text-center text-sm text-black/100 mt-4 z-20 relative  md:top-23">
         © 2025 Mehul Kumar Swarnber. All rights reserved.
       </p> */}
-      <p className="absolute bottom-[29px] text-center w-full text-sm text-black/100 z-20">
+      <p className="absolute bottom-[29px] text-center w-full text-sm text-black/100 z-20  md:top-23">
         © 2025 Mehul Kumar Swarnber. All rights reserved.
       </p>
     </section>
