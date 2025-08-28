@@ -7,34 +7,76 @@ import Landing from "./Components/Landing";
 import DisableWheelScroll from "./Components/DisableWheelScroll";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 const About = lazy(() => import("./Components/About"));
 const Skills = lazy(() => import("./Components/Skills"));
 const Projects = lazy(() => import("./Components/Projects"));
-const PortfolioContactForm = lazy(() => import("./Components/PortfolioContactForm"));
-
+const Experience = lazy(() => import("./Components/Experience")); // 🚀 New Experience Section
+const PortfolioContactForm = lazy(() =>
+  import("./Components/PortfolioContactForm")
+);
 
 function Loader() {
+  const messages = [
+    "Initializing Systems",
+    "Calibrating Thrusters",
+    "Launching Mission",
+  ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % messages.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white text-3xl"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black text-white"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
     >
+      {/* Rocket Animation */}
       <motion.div
         animate={{
-          opacity: [0.3, 1, 0.3],
+          y: [0, -20, 0],
         }}
         transition={{
-          duration: 2,
+          duration: 1.5,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="text-4xl"
+        className="text-6xl mb-6"
       >
-        🚀 Loading...
+        🚀
+      </motion.div>
+
+      {/* Loading Message */}
+      <motion.p
+        key={index}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.5 }}
+        className="text-xl tracking-widest text-blue-300"
+      >
+        {messages[index]}...
+      </motion.p>
+
+      {/* Progress Bar */}
+      <motion.div className="mt-8 w-48 h-1 bg-white/20 rounded-full overflow-hidden">
+        <motion.div
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="h-full bg-blue-400"
+        />
       </motion.div>
     </motion.div>
   );
@@ -56,7 +98,6 @@ export default function App() {
       };
       video.addEventListener("ended", handleEnded);
 
-      
       video.oncanplaythrough = () => {
         setLoading(false);
       };
@@ -108,7 +149,9 @@ export default function App() {
           {/* Lazy-loaded sections */}
           <Suspense
             fallback={
-              <div className="text-white p-8 text-center">Loading section...</div>
+              <div className="text-white p-8 text-center">
+                Loading section...
+              </div>
             }
           >
             <main>
@@ -123,6 +166,9 @@ export default function App() {
               </section>
               <section id="projects" className="min-h-screen">
                 <Projects />
+              </section>
+              <section id="experience" className="min-h-screen">
+                <Experience />
               </section>
               <section id="contact" className="min-h-screen">
                 <PortfolioContactForm />

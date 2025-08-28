@@ -7,9 +7,9 @@ const floatingObjects = [
   { type: "satellite", src: "/assets/floaters/satellite.webp" },
   { type: "planet", src: "/assets/floaters/planet1.webp" },
   { type: "planet", src: "/assets/floaters/planet2.webp" },
-  { type: "asteroid", src: "/assets/floaters/asteroid1.webp" },
-  { type: "asteroid", src: "/assets/floaters/asteroid2.webp" },
-  { type: "asteroid", src: "/assets/floaters/asteroid3.webp" },
+  { type: "asteroid", src: "/assets/meteorE/meteor7.webp" },
+  { type: "asteroid", src: "/assets/meteorE/meteor5.webp" },
+  { type: "asteroid", src: "/assets/meteorE/meteor6.webp" }
 ];
 
 const getRandom = (min, max) => Math.random() * (max - min) + min;
