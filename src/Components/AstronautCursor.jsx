@@ -83,7 +83,7 @@ export default function AstronautCursor() {
       >
         {mouseHeldLong ? (
           <img
-            src="/assets/cursorDeSite/cursorDefalling.png"
+            src="/assets/cursorDeSite/cursorDefalling.webp"
             alt="Falling Astronaut"
             style={{
               width: "40px",
@@ -100,7 +100,7 @@ export default function AstronautCursor() {
         ) : (
           <>
             <img
-              src="/assets/cursorDeSite/cursorDeAstronaute.png"
+              src="/assets/cursorDeSite/cursorDeAstronaute.webp"
               alt="Astronaut Cursor"
               style={{
                 width: "40px",
@@ -115,7 +115,7 @@ export default function AstronautCursor() {
               draggable={false}
             />
             <img
-              src="/assets/FlameDeRocketo/flameDeSmall/fire-png-696.png"
+              src="/assets/FlameDeRocketo/flameDeSmall/fire-png-696.webp"
               alt="Rocket Flame"
               className="flame"
               style={{

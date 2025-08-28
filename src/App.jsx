@@ -1,15 +1,18 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense, lazy } from "react";
 import Navbar from "./Components/Navbar";
 import CursorScrollWatcher from "./Components/CursorScrollWatcher";
-import Skills from "./Components/Skills";
-import About from "./Components/About";
-import Projects from "./Components/Projects";
-import PortfolioContactForm from "./Components/PortfolioContactForm";
 import AstronautCursor from "./Components/AstronautCursor";
 import RevealOverlay from "./Components/RevealOverlay";
 import Landing from "./Components/Landing";
 import DisableWheelScroll from "./Components/DisableWheelScroll";
 import { AnimatePresence, motion } from "framer-motion";
+
+
+const About = lazy(() => import("./Components/About"));
+const Skills = lazy(() => import("./Components/Skills"));
+const Projects = lazy(() => import("./Components/Projects"));
+const PortfolioContactForm = lazy(() => import("./Components/PortfolioContactForm"));
+
 
 function Loader() {
   return (
@@ -43,6 +46,7 @@ export default function App() {
 
   useEffect(() => {
     const video = videoRef.current;
+
     if (video) {
       video.playbackRate = 2;
 
@@ -51,17 +55,22 @@ export default function App() {
         video.play();
       };
       video.addEventListener("ended", handleEnded);
-      return () => video.removeEventListener("ended", handleEnded);
-    }
-  }, []);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 30000);
-    return () => clearTimeout(timeout);
+      
+      video.oncanplaythrough = () => {
+        setLoading(false);
+      };
+
+      return () => {
+        video.removeEventListener("ended", handleEnded);
+        video.oncanplaythrough = null;
+      };
+    }
   }, []);
 
   return (
     <>
+      {/* Background Video */}
       <video
         ref={videoRef}
         preload="auto"
@@ -79,12 +88,15 @@ export default function App() {
         Your browser does not support the video tag.
       </video>
 
+      {/* Dark overlay */}
       <div className="bg-overlay fixed inset-0 -z-5"></div>
 
+      {/* Loader */}
       <AnimatePresence mode="wait">
         {loading && <Loader key="loader" />}
       </AnimatePresence>
 
+      {/* Main Content */}
       {!loading && (
         <>
           <DisableWheelScroll />
@@ -93,23 +105,30 @@ export default function App() {
           <AstronautCursor />
           <Navbar />
 
-          <main>
-            <section id="landing" className="min-h-screen">
-              <Landing />
-            </section>
-            <section id="about" className="min-h-screen">
-              <About />
-            </section>
-            <section id="skills" className="min-h-screen">
-              <Skills />
-            </section>
-            <section id="projects" className="min-h-screen">
-              <Projects />
-            </section>
-            <section id="contact" className="min-h-screen">
-              <PortfolioContactForm />
-            </section>
-          </main>
+          {/* Lazy-loaded sections */}
+          <Suspense
+            fallback={
+              <div className="text-white p-8 text-center">Loading section...</div>
+            }
+          >
+            <main>
+              <section id="landing" className="min-h-screen">
+                <Landing />
+              </section>
+              <section id="about" className="min-h-screen">
+                <About />
+              </section>
+              <section id="skills" className="min-h-screen">
+                <Skills />
+              </section>
+              <section id="projects" className="min-h-screen">
+                <Projects />
+              </section>
+              <section id="contact" className="min-h-screen">
+                <PortfolioContactForm />
+              </section>
+            </main>
+          </Suspense>
         </>
       )}
     </>

@@ -3,13 +3,13 @@ import Typed from "typed.js";
 import gsap from "gsap";
 
 const floatingObjects = [
-  { type: "astronaut", src: "/assets/floaters/astronaut.png" },
-  { type: "satellite", src: "/assets/floaters/satellite.png" },
-  { type: "planet", src: "/assets/floaters/planet1.png" },
-  { type: "planet", src: "/assets/floaters/planet2.png" },
-  { type: "asteroid", src: "/assets/floaters/asteroid1.png" },
-  { type: "asteroid", src: "/assets/floaters/asteroid2.png" },
-  { type: "asteroid", src: "/assets/floaters/asteroid3.png" },
+  { type: "astronaut", src: "/assets/floaters/astronaut.webp" },
+  { type: "satellite", src: "/assets/floaters/satellite.webp" },
+  { type: "planet", src: "/assets/floaters/planet1.webp" },
+  { type: "planet", src: "/assets/floaters/planet2.webp" },
+  { type: "asteroid", src: "/assets/floaters/asteroid1.webp" },
+  { type: "asteroid", src: "/assets/floaters/asteroid2.webp" },
+  { type: "asteroid", src: "/assets/floaters/asteroid3.webp" },
 ];
 
 const getRandom = (min, max) => Math.random() * (max - min) + min;
@@ -133,6 +133,7 @@ const Landing = () => {
         <img
           key={index}
           src={obj.src}
+          loading="lazy"
           alt={`floater-${index}`}
           className="absolute pointer-events-none"
           ref={(el) => (floatRefs.current[index] = el)}

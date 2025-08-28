@@ -57,8 +57,9 @@ const Navbar = () => {
           onClick={() => window.location.reload()}
         >
           <img
-            src="/assets/LOGO/siteDeLogo.png"
+            src="/assets/LOGO/siteDeLogo.webp"
             alt="MS Logo"
+            loading="lazy"
             style={{ height: '80px', width: '80px', objectFit: 'contain' }}
           />
         </div>

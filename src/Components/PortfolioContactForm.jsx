@@ -11,18 +11,23 @@ export default function PortfolioContactForm() {
       className="relative min-h-[120vh] flex flex-col items-center justify-center text-white overflow-hidden"
     >
       <img
-        src="/assets/spaceDestation/space station.png"
+        src="/assets/spaceDestation/space station.webp"
         alt="Space station background"
+        loading="lazy"
         className="absolute bottom-0 md:w-[50%]  md:h-[90%] object-cover z-10 glowstation"
       />
       <div className="flex flex-col md:flex-row justify-center items-start gap-10 flex-wrap z-20">
         <div className="hologramform relative mt-10 md:mt-0">
-          <h2 className="text-xl flex justify-center font-bold mb-4">Contact Me</h2>
+          <h2 className="text-xl flex justify-center font-bold mb-4">
+            Contact Me
+          </h2>
           <Form />
         </div>
 
         <div className="hologramform relative mt-10 md:mt-0 ">
-          <h2 className="text-xl flex justify-center font-bold mb-2">Achievements</h2>
+          <h2 className="text-xl flex justify-center font-bold mb-2">
+            Achievements
+          </h2>
           <div className="h-68 overflow-hidden">
             <motion.div
               animate={{ y: ["0%", "-100%"] }}
@@ -31,16 +36,20 @@ export default function PortfolioContactForm() {
             >
               <p>🏆 Runner-up - Coding Contest at Astra Tech Fest 2025</p>
               <p>🏆 Second Runner-up - Hackathon at Astra Tech Fest 2025</p>
-              <p>🏆 Second Runner-up - Internal Hackathon for Smart India Hackathon 2024</p>
+              <p>
+                🏆 Second Runner-up - Internal Hackathon for Smart India
+                Hackathon 2024
+              </p>
             </motion.div>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 z-20">
+      <div className="mt-7 z-20 ">
         <img
-          src="/assets/seated/astronautSeated.png"
+          src="/assets/seated/astronautSeated.webp"
           alt="Seated Astronaut"
+          loading="lazy"
           className="w-[6rem] md:w-[7rem] mx-auto glowastronaut relative md:top-20"
         />
       </div>
@@ -70,7 +79,9 @@ export default function PortfolioContactForm() {
               </button>
             </div>
             <ul className="space-y-2 text-sm">
-              <li>🌌 Background video – Pexels (free for non-commercial use)</li>
+              <li>
+                🌌 Background video – Pexels (free for non-commercial use)
+              </li>
               <li>👨‍🚀 Astronaut (cursor) – AI-generated PNG</li>
               <li>🪐 Planets & Nebula – Pngwing (transparent PNGs)</li>
               <li>📡 Satellite image – Pngwing</li>
@@ -81,7 +92,10 @@ export default function PortfolioContactForm() {
         </motion.div>
       )}
 
-      <p className="text-center text-sm text-black/100 mt-4 z-20 relative md:top-23">
+      {/* <p className="text-center text-sm text-black/100 mt-4 z-20 relative  md:top-23">
+        © 2025 Mehul Kumar Swarnber. All rights reserved.
+      </p> */}
+      <p className="absolute bottom-[29px] text-center w-full text-sm text-black/100 z-20">
         © 2025 Mehul Kumar Swarnber. All rights reserved.
       </p>
     </section>

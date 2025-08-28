@@ -9,12 +9,12 @@ const About = () => {
     const containerRef = useRef();
 
     const smallMeteorPaths = [
-        '/assets/meteorE/meteor1.png',
-        '/assets/meteorE/meteor2.png',
-        '/assets/meteorE/meteor3.png',
-        '/assets/meteorE/meteor4.png',
-        '/assets/meteorE/meteor5.png',
-        '/assets/meteorE/meteor6.png',
+        '/assets/meteorE/meteor1.webp',
+        '/assets/meteorE/meteor2.webp',
+        '/assets/meteorE/meteor3.webp',
+        '/assets/meteorE/meteor4.webp',
+        '/assets/meteorE/meteor5.webp',
+        '/assets/meteorE/meteor6.webp',
     ];
 
     const denseMeteorArray = Array.from({ length: 50 }, (_, i) => ({
@@ -59,8 +59,9 @@ const isMobile = window.innerWidth <= 768;
             className="relative w-full h-[120vh] bg-none overflow-hidden"
         >
             <img
-                src="/assets/meteorE/meteor8.png"
+                src="/assets/meteorE/meteor8.webp"
                 alt="central meteor"
+                loading="lazy"
                 className="absolute center-meteor top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 z-10 drop-shadow-[0_0_40px_rgba(0,200,255,0.8)] animate-pulse"
                 style={{
                     width: isMobile ? '20rem' : '50rem',
@@ -94,6 +95,7 @@ const isMobile = window.innerWidth <= 768;
                     key={idx}
                     src={meteor.src}
                     alt={`meteor ${idx}`}
+                    loading="lazy"
                     ref={(el) => (meteorsRef.current[idx] = el)}
                     className="absolute w-10 h-10 opacity-80"
                     style={{
