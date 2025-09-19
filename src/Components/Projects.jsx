@@ -38,7 +38,15 @@ const projects = [
     github: "https://github.com/mehul-kumar-swarnber/codealpha_tasks.git",
     tech: ["Frontend", "Backend", "Database"],
   },
-  
+  {
+    title: "Class App",
+    description:
+      "A basic class app that contains notes, a timetable, and announcements.",
+    satellite: "/assets/satellites/sat5.webp",
+    preview: "/assets/previews/CSE5TH.mp4",
+    github: "https://github.com/mehul-kumar-swarnber/class-management-app-02.git",
+    tech: ["Frontend", "Backend", "Database"],
+  },
   /* {
     title: "RealorNot",
     description:
